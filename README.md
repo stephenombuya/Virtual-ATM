@@ -1,61 +1,79 @@
-# ATM C Project with GTK+ GUI
+# Virtual ATM - Complete Documentation 🏦
 
-This project implements a basic ATM (Automated Teller Machine) program using the GTK+ library for the graphical user interface. Users can log in with a username and PIN, view their balance, and potentially perform transactions (deposit or withdrawal) in future updates.
+## Overview
+The **Virtual ATM** is a software-based ATM system that allows users to manage their bank accounts, perform transactions, and receive notifications. It has been implemented in two different architectures:
+1. **Monolithic Architecture** 🏗️
+2. **Microservices Architecture** 🌐
 
-## Features
+Both implementations provide a functional ATM experience with features like authentication, balance inquiries, deposits, withdrawals, transaction history, and notifications.
 
-* Login functionality with username and PIN verification
-* Database integration for storing user accounts and transactions (future implementation)
-* User-friendly GTK+ GUI with basic styling
+---
+## 1️⃣ Monolithic Version
+### Features:
+- Single application handling all functionalities.
+- Integrated SQLite database for accounts and transactions.
+- GTK-based graphical user interface.
+- Status bar notifications for login, transactions, and errors.
+- CSV export for transaction history.
 
-## Getting Started
+### Tech Stack:
+- **Programming Language:** C
+- **Frontend:** GTK (GObject)
+- **Database:** SQLite
 
-### Prerequisites
-
-This project requires the following dependencies:
-
-* C compiler (gcc)
-* GTK+ 3.0 libraries and development headers (`pkg-config`)
-
-You can install these dependencies on most Linux distributions using your package manager. For example, on Ubuntu/Debian, you can run:
-
-```bash
-sudo apt install build-essential libgtk-3-dev
+### Setup Instructions:
+```sh
+git clone https://github.com/stephenombuya/Virtual-ATM
+cd virtual-atm/monolithic
+make
+./virtual_atm
 ```
 
-### Compiling and Running
-  1. Clone this repository to your local machine.
-  2. Open a terminal in the project directory.
-  3. Run the following command to compile the program:
-     ```bash
-     make
-     ```
+[See full Monolithic README](monolithic/README.md)
 
-  4. Run the program using the following command:
-     ```bash
-     ./atm
-     ```
+---
+## 2️⃣ Microservices Version
+### Features:
+- Modular design with independent services:
+  - **Account Service** (User authentication & balance management)
+  - **Transaction Service** (Deposits, withdrawals, history management)
+  - **Notification Service** (Real-time status updates)
+  - **Frontend** (GTK-based UI communicating via APIs)
+- REST API communication between services.
+- Dockerized deployment.
 
-This will launch the ATM application.
+### Tech Stack:
+- **Backend:** Python (Flask, SQLite)
+- **Frontend:** GTK (PyGObject)
+- **Containerization:** Docker + Docker Compose
 
+### Setup Instructions:
+```sh
+git clone https://github.com/your-username/virtual-atm.git
+cd virtual-atm
+docker-compose up --build
+```
 
-### Project Structure
-The project is organized with the following directory structure:
+[See full Microservices README](microservices/README.md)
 
-  - `atm.c`: Main program entry point.
-  - `Makefile`: Makefile for compiling the program.
+---
+## Comparison: Monolithic vs Microservices ⚖️
+| Feature | Monolithic | Microservices |
+|---------|-----------|--------------|
+| **Scalability** | Limited | High |
+| **Maintainability** | Harder | Easier |
+| **Performance** | Slower under load | Faster, optimized services |
+| **Deployment** | Simple | Requires containerization |
+| **Fault Isolation** | Low | High |
 
+---
+## Contribution Guide 🛠️
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit (`git commit -m 'Add feature'`).
+4. Push the branch (`git push origin feature-branch`).
+5. Open a Pull Request.
 
-### Future Enhancements
-- Implement transaction functionality (deposit and withdrawal)
-- Error handling and validation for user input
-- Add more features like balance inquiry and transaction history
-- Enhance the GUI with more visual elements and user interaction
-
-
-### Contributing
-We welcome contributions to this project! If you have any bug fixes, improvements, or new features in mind, feel free to fork the repository and submit a pull request.
-
-
-### License
-This project is licensed under the GNU General Public License. See the `LICENSE` file for more details.
+---
+## License 📜
+This project is licensed under the GNU License.
