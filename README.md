@@ -29,7 +29,7 @@ make
 ./virtual_atm
 ```
 
-[See full Monolithic README](monolithic/README.md)
+[See full Monolithic README](monolithic/readme.md)
 
 ---
 ## 2️⃣ Microservices Version
@@ -54,7 +54,7 @@ cd virtual-atm
 docker-compose up --build
 ```
 
-[See full Microservices README](microservices/README.md)
+[See full Microservices README](microservices/readme.md)
 
 ---
 ## Comparison: Monolithic vs Microservices ⚖️
