@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  account-service:
+    build: ./account-service
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./account-service:/app
+    restart: always
+    environment:
+      - FLASK_ENV=production
+
+  transaction-service:
+    build: ./transaction-service
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./transaction-service:/app
+    restart: always
+    environment:
+      - FLASK_ENV=production
+
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "5003:5003"
+    volumes:
+      - ./notification-service:/app
+    restart: always
+    environment:
+      - FLASK_ENV=production
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5004:5004"
+    volumes:
+      - ./frontend:/app
+    restart: always
+    environment:
+      - FLASK_ENV=production
